@@ -1,0 +1,67 @@
+group 'app.onesky.android'
+version '0.0.1'
+
+apply plugin: 'java'
+apply plugin: 'java-gradle-plugin'
+apply plugin: 'maven'
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+dependencies {
+    compile group: 'com.google.code.gson', name: 'gson', version: '1.7.2'
+    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.2'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'org.easymock', name: 'easymock', version: '3.6'
+}
+
+
+gradlePlugin {
+    plugins {
+        OneSkyPlugin {
+            id = 'app.onesky'
+            implementationClass = 'app.onesky.android.OneSkyPlugin'
+        }
+    }
+}
+
+test {
+    testLogging {
+        events "passed", "skipped", "failed"
+        exceptionFormat = 'full'
+    }
+}
+
+ext.copyFile = { inFile, outFile ->
+    try {
+        FileInputStream fis = new FileInputStream(inFile)
+        FileOutputStream fos = new FileOutputStream(outFile)
+        byte[] buffer = new byte[1024]
+        int length
+        while ((length = fis.read(buffer)) > 0) {
+            fos.write(buffer, 0, length)
+        }
+        fis.close()
+        fos.close()
+    }catch (Throwable t){
+        println(t.message)
+    }
+}
+
+install.doLast {
+    System.out.println("preparationDeployFiles")
+    File dir = new File("maven"+File.separator+"app"+File.separator+"onesky"+File.separator+"android"+File.separator+rootProject.name)
+        dir.mkdirs()
+        dir = new File(dir, version)
+        dir.mkdirs()
+        println(dir.absolutePath)
+        File pomFile = new File("build"+File.separator+"poms"+File.separator+"pom-default.xml")
+        File libsDir = new File("build"+File.separator+"libs")
+        File jarFile = new File(libsDir, rootProject.name+"-"+version+".jar")
+        copyFile(pomFile, new File(dir, rootProject.name+"-"+version+".pom"))
+        copyFile(jarFile, new File(dir, rootProject.name+"-"+version+".jar"))
+}

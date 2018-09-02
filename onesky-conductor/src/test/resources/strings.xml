@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">OneSky Example</string>
+    <string name="title">Title:</string>
+    <string name="author">Author:</string>
+    <string name="comment">%1$s Comment</string>
+    <string name="comments">%1$s Comments</string>
+    <string name="hours_minutes_ago">%1$d hours %2$d minutes ago</string>
+    <string name="english">English</string>
+    <string name="russian">Russian</string>
+    <string name="chinese">Chinese</string>
+    <string name="a_year">a year</string>
+    <string name="years">%1$s years</string>
+    <string name="and_a_month">and a month</string>
+    <string name="and_months_months">" and %1$s months"</string>
+</resources>
