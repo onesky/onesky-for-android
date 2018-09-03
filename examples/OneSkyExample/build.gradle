@@ -27,10 +27,6 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
-task preBuild << {
-    println 'do it before build'
-}
-
 apply plugin: 'app.onesky'
 
 OneSky {
@@ -38,5 +34,3 @@ OneSky {
     apiKey = "1234"
     resourceDirectoryRelativePath = "app/res/"
 }
-
-preBuild.dependsOn localize
