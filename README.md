@@ -12,4 +12,4 @@ Our [installation guide](https://developers.onesky.app/docs/android-installation
 A project with some basic example integrations is provided [here](https://github.com/onesky/onesky-for-android/tree/master/examples/onesky-example).
 
 ## Customer Support
-If you bump into any problems or need more support, just create an issue here and it will be routed to our Customer Support Engineers.
+If you bump into any problems or need more support, just create an issue [here](https://github.com/onesky/onesky-for-android/issues) and it will be routed to our Customer Support Engineers.
