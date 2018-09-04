@@ -3,7 +3,7 @@
 **OneSky for Android** helps developers actualize cross-platform localization experience quickly with out-of-box solutions. Save hundreds of hours in finding and trying out best practices. You can mix-and-match building blocks with your own implementations if needed.
 
 ## Developer Hub
-https://developers.onesky.app
+The [Developer Hub](https://developers.onesky.app) contains all the information developers need to build all kinds of integration with the OneSky.
 
 ## Setup and Configuration
 Our [installation guide](https://developers.onesky.app/docs/android-installation) contains full setup and initialisation instructions.
