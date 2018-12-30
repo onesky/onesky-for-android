@@ -1,4 +1,13 @@
-# Instruction for packing the plugin
+## Developer Instruction
+
+### Testing the plugin
+
+Write test cases inside `src/test` folder. To test the cases, go to `onesky-conductor` folder, then run
+```
+./gradlew test
+```
+
+### Packing the plugin
 
 In `onesky-conductor` folder, run
 ```
