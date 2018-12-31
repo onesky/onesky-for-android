@@ -4,8 +4,8 @@ import org.junit.Test;
 
 public class ApiConsumerTest {
 
-    private String appId = "94a3ecf8-0134-4c3b-a3a8-b6c90f14d57a";
-    private String apiKey = "1234";
+    private String appId = "aa339d82-7365-406b-af92-f3d1f4c77651";
+    private String apiKey = "06f7f71f85040b3ca951ecfb2e53b340";
 
     @Test
     public void getAppConfig() throws Exception {

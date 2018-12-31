@@ -29,10 +29,12 @@ public class LocalizationTask extends DefaultTask {
 
         ApiConsumer apiConsumer = new ApiConsumer(OneSkyPlugin.oneSkyPluginExtension.appId, OneSkyPlugin.oneSkyPluginExtension.apiKey);
         String appConfigContent = apiConsumer.getAppConfigContent();
+        checkResponse(appConfigContent);
         writeStringFiles(appConfigContent);
     }
 
     private void writeStringFiles(String appConfigContent) throws Exception {
+
         JsonParser jsonParser = new JsonParser();
         JsonElement rootConfigElement = jsonParser.parse(appConfigContent);
         JsonArray selectors = rootConfigElement.getAsJsonObject().getAsJsonObject("app").getAsJsonArray("selectors");
@@ -76,5 +78,17 @@ public class LocalizationTask extends DefaultTask {
         FileOutputStream fileOutputStream = new FileOutputStream(file, false);
         fileOutputStream.write(stringFileContent.getBytes());
         fileOutputStream.close();
+    }
+
+    private void checkResponse(String appConfigContent) throws Exception {
+
+        JsonParser jsonParser = new JsonParser();
+        JsonElement rootConfigElement = jsonParser.parse(appConfigContent);
+        JsonArray errors = rootConfigElement.getAsJsonObject().getAsJsonArray("errors");
+        if (errors != null) {
+            for (JsonElement error : errors) {
+                throw new Exception(error.getAsJsonObject().get("message").getAsString());
+            }
+        }
     }
 }

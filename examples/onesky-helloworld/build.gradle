@@ -9,7 +9,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.0'
-        classpath 'app.onesky.android:onesky-conductor:0.0.1'
+        classpath 'app.onesky.android:onesky-conductor:0.0.2'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -30,7 +30,7 @@ task clean(type: Delete) {
 apply plugin: 'app.onesky'
 
 OneSky {
-    appId = "94a3ecf8-0134-4c3b-a3a8-b6c90f14d57a"
-    apiKey = "1234"
+    appId = "aa339d82-7365-406b-af92-f3d1f4c77651"
+    apiKey = "06f7f71f85040b3ca951ecfb2e53b340"
     resourceDirectoryRelativePath = "app/src/main/res/"
 }
