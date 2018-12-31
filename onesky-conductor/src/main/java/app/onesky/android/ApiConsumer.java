@@ -1,5 +1,6 @@
 package app.onesky.android;
 
+import org.apache.http.HttpHeaders;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
@@ -32,7 +33,7 @@ public class ApiConsumer {
 
     public String getAppConfigContent() throws Exception {
 
-        return getContent(INVOKE_URL + "apps/" + this.appId + "?platformId=android");
+        return getContent(INVOKE_URL + "apps/" + this.appId);
     }
 
     public String getStringFileContent(String languageId) throws Exception {
@@ -49,7 +50,7 @@ public class ApiConsumer {
                 return true;
             }
         }).build();
-        b.setSslcontext( sslContext);
+        b.setSslcontext(sslContext);
 
         HostnameVerifier hostnameVerifier = SSLConnectionSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER;
 
@@ -59,12 +60,15 @@ public class ApiConsumer {
                 .register("https", sslSocketFactory)
                 .build();
 
-        PoolingHttpClientConnectionManager connMgr = new PoolingHttpClientConnectionManager( socketFactoryRegistry);
-        b.setConnectionManager( connMgr);
+        PoolingHttpClientConnectionManager connMgr = new PoolingHttpClientConnectionManager(socketFactoryRegistry);
+        b.setConnectionManager(connMgr);
 
         HttpClient httpClient = b.build();
 
-        HttpResponse response = httpClient.execute(new HttpGet(uri));
+        HttpGet request = new HttpGet(uri);
+        request.setHeader(HttpHeaders.AUTHORIZATION, "Bearer " + this.apiKey);
+        request.setHeader("Platform", "android");
+        HttpResponse response = httpClient.execute(request);
 
         return EntityUtils.toString(response.getEntity());
     }
