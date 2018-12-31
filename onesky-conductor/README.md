@@ -63,6 +63,12 @@ buildscript {
 ...
 ```
 
+#### 5. Execute the modified plugin
+In `onesky-helloworld` folder, run
+```
+./gradlew localize
+```
+
 ### Testing the plugin
 
 Write test cases inside `src/test` folder. To test the cases, go to `onesky-conductor` folder, then run
