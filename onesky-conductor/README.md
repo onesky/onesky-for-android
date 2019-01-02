@@ -16,7 +16,7 @@ repositories {
 }
 ```
 
-Gradle uses the same logic as Maven to identify the location of your local Maven cache. If a local repository location is defined in a settings.xml, this location will be used. The settings.xml in USER_HOME/.m2 takes precedence over the settings.xml in M2_HOME/conf. If no settings.xml is available, Gradle uses the default location USER_HOME/.m2/repository.
+Gradle uses the same logic as Maven to identify the location of your local Maven cache. If a local repository location is defined in a `settings.xml`, this location will be used. The `settings.xml` in `USER_HOME/.m2` takes precedence over the `settings.xml` in `M2_HOME/conf`. If no `settings.xml` is available, Gradle uses the default location `USER_HOME/.m2/repository`.
 
 For more details please refer to [Gradle Docs](https://docs.gradle.org/current/userguide/repository_types.html#sub:maven_local).
 
