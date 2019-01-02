@@ -49,7 +49,7 @@ buildscript {
     repositories {
         google()
         jcenter()
-        // maven { url 'https://sdk.onesky.app/maven' }
+        // maven { url 'https://onesky-sdks-prod.firebaseapp.com/maven' }
         mavenLocal()
     }
     dependencies {
