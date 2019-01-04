@@ -13,3 +13,6 @@ A project with some basic example integrations is provided [here](https://github
 
 ## Customer Support
 If you bump into any problems or need more support, just create an issue [here](https://github.com/onesky/onesky-for-android/issues) and it will be routed to our Customer Support Engineers.
+
+## Code of conduct
+Participation in the Helm community is governed by the [Code of Conduct](code-of-conduct.md).
